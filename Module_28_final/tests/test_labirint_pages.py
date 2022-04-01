@@ -3,7 +3,6 @@ from tests.test_data import *  #tests - папка, из которой испо
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.base_page import BasePage
 import time
 
 def test_auth_page(selenium):
@@ -19,7 +18,7 @@ def test_auth_page(selenium):
     page.btn_click()
     time.sleep(2)
     assert page.get_relative_link() == '/cabinet/'
-'''
+
 def test_visit(selenium):
     page = MainPage(selenium) # инициализация страницы
     page.visit()
@@ -345,103 +344,5 @@ def test_rat_stores(selenium):
     rat_stores = page.rat_books
     for i in range(len(rat_stores)):
         assert rat_stores[i].get_attribute('class') == 'product-buy buy-avaliable fleft'
-'''
-
-'''def test_actions_link(selenium):
-    page = MainPage(selenium)
-    page.actions_horizontal_menu.click()
-    actions = WebDriverWait(selenium, 10).until(EC.presence_of_element_located(By.XPATH, '//div[@class="a0k9"]'))
-    assert 'Акции и спецпредложения' in actions.text
-    assert page.get_relative_link() == '/info/actions/'
-
-ACTIONS_HORIZONTAL_MENU = (By.XPATH, '//a[@href="/highlight/top-fashion/"]')
-self.actions_horizontal_menu = driver.find_element(*MainpageLocators.ACTIONS_HORIZONTAL_MENU)#
 
 
-def test_coupons_link(selenium):
-    page = PromotionsPage(selenium):
-    page.coupons_promotion_menu.click()
-    time.sleep(1)
-    assert page.get_link_query() == 'filter=coupons'
-
-COUPONS_PROMOTION_MENU = (By.XPATH, '//a[@href="/info/actions/?filter=coupons"]')
-
-
-def test_auth_page(selenium):
-    page = AuthPage(selenium)
-    page.enter_email("email@gmail.com")
-    page.enter_pass("pass")
-    page.btn_click()
-    assert page.get_relative_link() != "login error"
-
-def test_ozon_discount_link(selenium):
-    page = MainPage(selenium)
-    page.ozon_discount_horizontal_menu.click()
-    WebDriverWait(selenium, 10).until(EC.presence_of_all_element_located(By.XPATH, '//div[@class="b6e2"]'))
-    time.sleep(3)
-    assert page.get_relative_link() == '/highlight/discount/'
-
-OZON_DISCOUNT_HORIZONTAL_MENU = (By.XPATH, '//a[@href="/highlight/discount/"]')
-self.ozon_discount_horizontal_menu = driver.find_element(*MainpageLocators.OZON_DISCOUNT_HORIZONTAL_MENU)
-
-def test_business_link(selenium):
-    page = MainPage(selenium)
-    page.business_navigation_menu.click()
-    WebDriverWait(selenium, 10).until(EC.presence_of_element_located(By.XPATH, '//h1'))
-    assert page.get_url() == 'business.ozon.ru'
-
-BUSINESS_NAVIGATION = (By.XPATH, '//a[@href="//business.ozon.ru/?perehod=header"]')
-self.business_navigation_menu = driver.find_element(*MainpageLocators.BUSINESS_NAVIGATION)
-
-def test_start_page(selenium):
-    page = AuthPage(selenium)
-    # Проверяем, что мы оказались на главной странице пользователя
-    assert pytest.driver.find_element_by_tag_name('h2').text == u"Лучшая покупка дня"
-    # Проверяем, что на странице присутствуют объекты - книги
-    assert len(page.START_PAGE_BOOKS) > 0
-
-def test_visit(driver):
-    base_page = BasePage(driver)
-    base_page.visit()
-    assert base_page.get_main_menu().is_displayed()
-
-def test_auths(driver):
-    base_page = BasePage(driver)
-    base_page.visit()
-    base_page.get_main_menu().click()
-    auth_page = AuthPage(driver)
-    time.sleep(2)
-    assert auth_page.get_main_menu()[1].is_displayed()
-
-
-
-
-
-def test_sidebar_menu(selenium):
-    page = MainPage(selenium)
-    sidebar_menu = page.side_bar
-    for i in range(len(sidebar_menu)):
-        for j in sidebar_list:
-            assert j in sidebar_menu(i).text
-
-self.side_bar = driver.find_elements(*MainpageLocators.SIDEBAR)
-SIDEBAR = (By.XPATH, '//div[@class="c5y6"]')
-
-def test_horizontal_menu(selenium):
-    page = MainPage(selenium)
-    horizontal_menu = page.horizontal_menu
-    for i in range(len(horizontal_menu)):
-        for j in horizontal_menu_list:
-            assert j in horizontal_menu(i).text
-
-HORIZONTAL_MENU = (By.XPATH, '//ul[@data-widget="horizontalMenu"]')
-self.horizontal_menu = driver.find_elements(*MainpageLocators.HORIZONTAL_MENU)
-
-def test_navigation(selenium):
-    page = MainPage(selenium)
-    navigation = page.navigation
-    for i in range(len(navigation)):
-        for j in navigation_list:
-            assert j in navigation(i).text'''
-
-            

@@ -144,26 +144,4 @@ class RatingPage(BasePage):
 
 
 
-    '''def enter_email(self, value):
-        self.email.send_keys(value)
-
-    def enter_pass(self, value):
-        self.passw.send_keys(value)
-
-    def btn_click(self):
-        self.btn.click()
-
-
-    def visit(self):
-        self.driver.get(url)
-
-    def get_main_menu(self):
-        return self.driver.find_element_by_xpath("//a[@class="b-header-b-menu-e-text" and contains(text(), "Игрушки")]")
-
-    # чтобы проверить, все ли найденные слова находятся в тексте, результат был найден в значении атрибута
-    def search_match_fully(self, element, serch_name):
-        element_text = element.get_attribute(TestData.ATTRIBUTE_TITLE)
-        element_in_list = element_text.lower().split()
-        name_list = serch_name.lower().split()
-        result = list(set(element_in_list) & set(name_list))
-        return len(name_list) == len(result)'''
+  
